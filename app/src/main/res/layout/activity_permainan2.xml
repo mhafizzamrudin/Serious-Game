@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:scaleType="center"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/Avatar1" />
+                android:src="@drawable/avatar1" />
 
             <ImageView
                 android:id="@+id/image2"
@@ -51,7 +51,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:scaleType="center"
-                android:src="@drawable/Avatar2" />
+                android:src="@drawable/avatar2" />
 
             <ImageView
                 android:id="@+id/image3"
@@ -60,7 +60,7 @@
                 android:scaleType="center"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:src="@drawable/Avatar1" />
+                android:src="@drawable/avatar1" />
 
             <ImageView
                 android:id="@+id/image4"
@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:scaleType="center"
-                android:src="@drawable/Avatar2" />
+                android:src="@drawable/avatar2" />
         </LinearLayout>
 
         <LinearLayout
