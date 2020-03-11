@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Halaman Personality Avatar"
+            android:gravity="center"
+            android:textSize="26dp"
+            android:layout_marginBottom="40dp"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Hewan Peliharaan"
+                android:textSize="19dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:focusable="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/hewan1"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/hewan2"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/hewan3"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/hewan4"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_upload1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Galeri" />
+
+                    <Button
+                        android:id="@+id/btn_camera1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Kamera" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Tempat Liburan"
+                android:textSize="19dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:focusable="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/liburan1"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/liburan2"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/liburan3"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/liburan4"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_upload2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Galeri" />
+
+                    <Button
+                        android:id="@+id/btn_camera2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Kamera" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Kerabat"
+                android:textSize="19dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="96dp"
+                android:focusable="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/kerabat1"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/kerabat2"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/kerabat3"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/kerabat4"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_upload3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Galeri" />
+
+                    <Button
+                        android:id="@+id/btn_camera3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Kamera" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="5dp"
+                android:text="Tetangga"
+                android:textSize="19dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="82dp"
+                android:focusable="true"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/tetangga1"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/tetangga2"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/tetangga3"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <ImageView
+                    android:id="@+id/tetangga4"
+                    android:layout_width="22dp"
+                    android:layout_height="47dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/icon" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_upload4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Galeri" />
+
+                    <Button
+                        android:id="@+id/btn_camera4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:text="Kamera" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnCreateAccount"
+            android:background="@drawable/tombol"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="30dp"
+            android:onClick="onClick"
+            android:text="Buat Akun"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+    </LinearLayout>
+
+</ScrollView>
