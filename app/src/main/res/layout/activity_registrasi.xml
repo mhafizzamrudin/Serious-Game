@@ -23,6 +23,7 @@
             />
 
         <EditText
+            android:id="@+id/txt_nama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nama Lengkap"
@@ -30,6 +31,7 @@
             />
 
         <EditText
+            android:id="@+id/txt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
@@ -38,12 +40,12 @@
             />
 
         <EditText
+            android:id="@+id/txt_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Kata Sandi"
-            android:inputType="textPassword"
             android:layout_marginBottom="5dp"
-            />
+            android:hint="Kata Sandi"
+            android:inputType="textPassword" />
 
         <Button
             android:id="@+id/btnCreateAccount"

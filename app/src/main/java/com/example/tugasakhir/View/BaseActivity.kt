@@ -4,9 +4,14 @@ import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tugasakhir.BuildConfig
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import timber.log.Timber
 
 abstract class BaseActivity : AppCompatActivity() {
+
+    protected lateinit var mAuth : FirebaseAuth
+    protected lateinit var mDatabase : FirebaseDatabase
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -14,6 +19,8 @@ abstract class BaseActivity : AppCompatActivity() {
             Timber.plant(Timber.DebugTree())
             Timber.tag(this::class.java.simpleName)
         }
+        mAuth = FirebaseAuth.getInstance()
+        mDatabase = FirebaseDatabase.getInstance()
         setContentView(getResourceLayout())
         onViewReady(savedInstanceState)
     }
