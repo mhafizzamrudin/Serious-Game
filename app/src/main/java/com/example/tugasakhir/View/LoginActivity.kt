@@ -8,7 +8,7 @@ import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
 import com.example.tugasakhir.Repository.UserRepository
 import com.example.tugasakhir.ViewModel.UserViewModel
-import kotlinx.android.synthetic.main.activity_login2.*
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), UserRepository.UserRegisterListener {
 
@@ -16,7 +16,7 @@ class LoginActivity : BaseActivity(), UserRepository.UserRegisterListener {
     private lateinit var dialog : ProgressDialog
 
     override fun getResourceLayout(): Int {
-        return R.layout.activity_login2
+        return R.layout.activity_login
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {

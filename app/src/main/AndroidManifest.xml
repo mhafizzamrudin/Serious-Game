@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.tugasakhir">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,6 +20,8 @@
         </activity>
         <activity android:name=".View.RegisterActivity"/>
         <activity android:name=".View.LoginActivity"/>
+        <activity android:name=".View.RegisterAvatarActivity"/>
+        <activity android:name=".View.CreatePersonalityActivity"/>
     </application>
 
 </manifest>

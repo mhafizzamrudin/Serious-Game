@@ -10,4 +10,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="avatar_name">Nama Avatar</string>
+
+    <string-array name="kewarganegaraan">
+        <item>WNI</item>
+        <item>WNA</item>
+    </string-array>
 </resources>

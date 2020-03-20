@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.example.tugasakhir.R
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_login2.*
+import kotlinx.android.synthetic.main.activity_login.*
 
 class MainActivity : BaseActivity() {
     override fun getResourceLayout(): Int {

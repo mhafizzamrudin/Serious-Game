@@ -12,16 +12,6 @@
         android:layout_marginTop="60dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Halaman Pendaftaran Pengguna"
-            android:gravity="center"
-            android:textSize="26dp"
-            android:layout_marginBottom="40dp"
-            android:textStyle="bold"
-            />
-
         <EditText
             android:id="@+id/txt_nama"
             android:layout_width="match_parent"
@@ -48,7 +38,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/Berikutnya"
+            android:id="@+id/btn_berikutnya"
             android:background="@drawable/tombol"
             android:layout_width="match_parent"
             android:layout_height="46dp"
@@ -75,7 +65,7 @@
                 android:text="Sudah memiliki akun? " />
 
             <TextView
-                android:id="@+id/txtSignin"
+                android:id="@+id/txt_sign_in"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="onClick"
