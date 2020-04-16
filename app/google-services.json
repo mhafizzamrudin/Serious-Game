@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "514158136201",
+    "firebase_url": "https://serious-game-8a42b.firebaseio.com",
+    "project_id": "serious-game-8a42b",
+    "storage_bucket": "serious-game-8a42b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514158136201:android:8f2b001f3d6561b9a66f58",
+        "android_client_info": {
+          "package_name": "com.example.ta1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514158136201-qaekhueb6knjp4e75vn86t06gcglig5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-M7_Y1vraOSJuMzsc2eX9iVJ3rNVr1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514158136201-qaekhueb6knjp4e75vn86t06gcglig5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:514158136201:android:7c5b8efa08c38460a66f58",
+        "android_client_info": {
+          "package_name": "com.example.tugasakhir"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "514158136201-qaekhueb6knjp4e75vn86t06gcglig5b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy-M7_Y1vraOSJuMzsc2eX9iVJ3rNVr1k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "514158136201-qaekhueb6knjp4e75vn86t06gcglig5b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
