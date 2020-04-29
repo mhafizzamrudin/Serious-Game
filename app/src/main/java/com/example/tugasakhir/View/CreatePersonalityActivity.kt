@@ -3,8 +3,12 @@ package com.example.tugasakhir.View
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import com.bumptech.glide.Glide
+import com.example.tugasakhir.Model.Answer
+import com.example.tugasakhir.Model.Avatar
 import com.example.tugasakhir.Model.Personality
+import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
@@ -20,15 +24,44 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
 
     private var selected_image = 1
     private lateinit var easyImage : EasyImage
-    private lateinit var personality: Personality
+    private lateinit var user : User
+    private var name : Int = 0
+    private val names = arrayOf("Pet", "Family", "Vacation", "Hobby")
+    private var personalities = arrayOf(Personality(), Personality(), Personality(), Personality())
 
     override fun getResourceLayout(): Int {
         return R.layout.activity_personality_avatar
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-        setTitle("Daftar Avatar")
         showBackButton()
+
+        val bundle = intent.extras
+        if(bundle != null) {
+            user = User().apply {
+                name = bundle.getString("user.name", "")
+                email = bundle.getString("user.email", "")
+                password = bundle.getString("user.password", "")
+                phone = bundle.getString("user.phone", "")
+                address = bundle.getString("user.address", "")
+            }
+            user.avatar = Avatar().apply {
+                name = bundle.getString("avatar.name", "")
+                phone = bundle.getString("avatar.phone", "")
+                kewarganegaraan = bundle.getString("avatar.kewarganegaraan", "")
+            }
+            name = bundle.getInt("name", 0)
+//            if(intent.hasExtra("personalities"))
+//                personalities = intent.getParcelableArrayExtra("personalities") as Array<Personality>
+
+            setTitle("Daftar ${names[name]}")
+        }
+
+        personalities[name].name = names[name]
+        personalities[name].answers.add(Answer())
+        personalities[name].answers.add(Answer())
+        personalities[name].answers.add(Answer())
+        personalities[name].answers.add(Answer())
 
         easyImage = EasyImage.Builder(this)
                 .allowMultiple(false)
@@ -66,6 +99,32 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
                     .check()
 
         }
+
+        btn_selanjutnya.setOnClickListener {
+            if(name < 3) {
+                val intent = Intent(this, CreatePersonalityActivity::class.java)
+                intent.putExtra("user.name", user.name)
+                intent.putExtra("user.email", user.email)
+                intent.putExtra("user.password", user.password)
+                intent.putExtra("user.phone", user.phone)
+                intent.putExtra("user.address", user.address)
+
+                intent.putExtra("avatar.gender", user.avatar.gender)
+                intent.putExtra("avatar.name", user.avatar.name)
+                intent.putExtra("avatar.phone", user.avatar.name)
+                intent.putExtra("avatar.kewarganegaraan", user.avatar.kewarganegaraan)
+
+                intent.putExtra("name", name+1)
+
+//                intent.putExtra("personalities", personalities)
+
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Berhasil mendaftarkan akun", Toast.LENGTH_SHORT).show()
+                finish()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -97,10 +156,19 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
     override fun onMediaFilesPicked(imageFiles: Array<MediaFile>, source: MediaSource) {
         val image = imageFiles[0]
         when(selected_image) {
-            1 -> Glide.with(this).load(image.file).fitCenter().into(img_1)
-            2 -> Glide.with(this).load(image.file).fitCenter().into(img_2)
-            3 -> Glide.with(this).load(image.file).fitCenter().into(img_3)
-            4 -> Glide.with(this).load(image.file).fitCenter().into(img_4)
+            1 -> {
+                Glide.with(this).load(image.file).fitCenter().into(img_1)
+            }
+            2 -> {
+                Glide.with(this).load(image.file).fitCenter().into(img_2)
+            }
+            3 -> {
+                Glide.with(this).load(image.file).fitCenter().into(img_3)
+            }
+            4 -> {
+                Glide.with(this).load(image.file).fitCenter().into(img_4)
+            }
         }
+        personalities[name].answers[selected_image-1].image = image.file.path
     }
 }

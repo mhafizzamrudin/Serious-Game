@@ -1,7 +1,11 @@
 package com.example.tugasakhir.Model
 
-class Personality {
-    var id : String? = null
-    var name : String = ""
-    var answers = mutableListOf<Answer>()
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+class Personality(var name : String = "", var answers : MutableList<Answer> = mutableListOf()) : Parcelable {
+//    var id : String? = null
+//    var name : String = ""
+//    var answers = mutableListOf<Answer>()
 }

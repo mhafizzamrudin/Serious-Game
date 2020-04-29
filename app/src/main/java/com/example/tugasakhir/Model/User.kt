@@ -6,6 +6,9 @@ class User {
     var email : String = ""
     var password : String? = null
     var avatar = Avatar()
+    var phone : String = ""
+    var address : String = ""
 
     constructor()
+
 }

@@ -1,5 +1,6 @@
 package com.example.tugasakhir.Model
 
+
 class Avatar {
     var id : String? = null
     var name : String = ""
@@ -10,6 +11,8 @@ class Avatar {
     var family = Personality()
     var vacation = Personality()
     var friend = Personality()
+    var phone : String = ""
 
     constructor()
+
 }
