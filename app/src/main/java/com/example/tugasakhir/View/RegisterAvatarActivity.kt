@@ -38,7 +38,7 @@ class RegisterAvatarActivity : BaseActivity() {
 
         img_avatar_female.setOnClickListener{
             img_avatar_female.setImageResource(R.drawable.avatar_female)
-            img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
+                img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
             user.avatar.gender = "Female"
         }
 
