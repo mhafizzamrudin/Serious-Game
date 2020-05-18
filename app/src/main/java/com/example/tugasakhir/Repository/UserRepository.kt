@@ -65,6 +65,7 @@ class UserRepository(val mDatabase : FirebaseDatabase) {
                                 }
 
                             }
+                            user.password = null
                             ref.child(cUser!!.uid).setValue(user)
                             var idx = 0
                             user.avatar.pet.answers.forEach {
