@@ -76,7 +76,7 @@ class RegisterAvatarActivity : BaseActivity() {
         txt_phone.validate("No HP tidak boleh kosong") { it.isNotEmpty() }
         txt_kewarganegaraan.validate("Kewarganegaraan tidak boleh kosong") { it.isNotEmpty() }
 
-        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.error.isEmpty()) {
+        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.error.isNullOrBlank()) {
             return true
         }
         return false
