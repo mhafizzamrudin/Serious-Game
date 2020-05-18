@@ -59,7 +59,7 @@ class Permainan2Fragment : BaseFragment() {
                     message(text="Pilih 2 gambar terlebih dahulu")
                     positiveButton(text="OK")
                 }
-            } else if(txt_answer_1.text.toString() == questionAdapter.getFirstAnswer()!!.answer) {
+            } else if(txt_answer_1.text.toString().toLowerCase() == questionAdapter.getFirstAnswer()!!.answer.toLowerCase()) {
                 (activity as PermainanActivity).score += 20
                 MaterialDialog(context!!).show {
                     title(text="Jawaban benar")

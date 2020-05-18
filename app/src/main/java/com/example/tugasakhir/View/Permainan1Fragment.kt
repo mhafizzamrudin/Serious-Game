@@ -16,7 +16,7 @@ class Permainan1Fragment : BaseFragment() {
         updateScore()
         randomQuestion()
         btn_next.setOnClickListener {
-            if(txt_jawaban.text.toString() == question.answer) {
+            if(txt_jawaban.text.toString().toLowerCase() == question.answer.toLowerCase()) {
                 (activity as PermainanActivity).score += 10
                 MaterialDialog(activity!!).show {
                     title(text="Jawaban anda benar")
