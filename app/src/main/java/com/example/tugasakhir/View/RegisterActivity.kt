@@ -3,22 +3,18 @@ package com.example.tugasakhir.View
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.EditText
-import android.widget.Toast
-import androidx.core.widget.ContentLoadingProgressBar
-import com.example.tugasakhir.Model.Avatar
+import com.afollestad.materialdialogs.MaterialDialog
+import com.example.tugasakhir.Interface.StandartInterface
 import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
-import com.example.tugasakhir.Repository.UserRepository
-import com.example.tugasakhir.ViewModel.UserViewModel
+import com.example.tugasakhir.ViewModel.RegisterViewModel
 import kotlinx.android.synthetic.main.activity_registrasi.*
 
-class RegisterActivity : BaseActivity() {
+class RegisterActivity : BaseActivity(), StandartInterface.StandartListener {
 
-    private lateinit var userViewModel: UserViewModel
+    private lateinit var registerViewModel : RegisterViewModel
     private lateinit var dialog : ProgressDialog
     private lateinit var user: User
 
@@ -30,6 +26,10 @@ class RegisterActivity : BaseActivity() {
         setTitle("Daftar Akun")
         showBackButton()
 
+        registerViewModel = RegisterViewModel(mAuth, mDatabase)
+
+        dialog = ProgressDialog(this)
+
         btn_berikutnya.setOnClickListener {
             if(validate()) {
 
@@ -40,14 +40,10 @@ class RegisterActivity : BaseActivity() {
                     address = txt_address.text.toString()
                     phone = txt_phone.text.toString()
                 }
-                val intent = Intent(this, RegisterAvatarActivity::class.java)
-                intent.putExtra("name", user.name)
-                intent.putExtra("email", user.email)
-                intent.putExtra("password", user.password)
-                intent.putExtra("address", user.address)
-                intent.putExtra("phone", user.phone)
-                startActivity(intent)
-                finish()
+                dialog.setTitle("Please wait")
+                dialog.setCancelable(false)
+                dialog.show()
+                registerViewModel.isEmailAvailable(user.email, this)
             }
 
         }
@@ -74,5 +70,26 @@ class RegisterActivity : BaseActivity() {
     }
 
     fun String.isValidEmail() : Boolean = this.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(this).matches()
+
+    override fun onSuccess() {
+        dialog.dismiss()
+        val intent = Intent(this, RegisterAvatarActivity::class.java)
+        intent.putExtra("name", user.name)
+        intent.putExtra("email", user.email)
+        intent.putExtra("password", user.password)
+        intent.putExtra("address", user.address)
+        intent.putExtra("phone", user.phone)
+        startActivity(intent)
+        finish()
+    }
+
+    override fun onFailed() {
+        dialog.dismiss()
+        MaterialDialog(this).show {
+            title(text="Email sudah digunakan")
+            message(text= "Email yang anda daftarkan sudah digunakan")
+            positiveButton(text="OK")
+        }.show()
+    }
 
 }

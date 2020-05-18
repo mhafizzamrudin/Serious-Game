@@ -22,6 +22,8 @@
         <activity android:name=".View.LoginActivity"/>
         <activity android:name=".View.RegisterAvatarActivity"/>
         <activity android:name=".View.CreatePersonalityActivity"/>
+        <activity android:name=".View.LupaPasswordActivity"/>
+        <activity android:name=".View.PermainanActivity"/>
     </application>
 
 </manifest>

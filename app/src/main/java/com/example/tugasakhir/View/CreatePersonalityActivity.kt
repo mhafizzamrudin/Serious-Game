@@ -1,15 +1,23 @@
 package com.example.tugasakhir.View
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
+import com.afollestad.materialdialogs.MaterialDialog
 import com.bumptech.glide.Glide
+import com.example.tugasakhir.Interface.StandartInterface
 import com.example.tugasakhir.Model.Answer
 import com.example.tugasakhir.Model.Avatar
 import com.example.tugasakhir.Model.Personality
 import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
+import com.example.tugasakhir.ViewModel.RegisterViewModel
+import com.google.firebase.storage.FirebaseStorage
+import com.google.gson.Gson
+import com.google.gson.JsonArray
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
@@ -19,6 +27,7 @@ import kotlinx.android.synthetic.main.activity_personality_avatar.*
 import pl.aprilapps.easyphotopicker.EasyImage
 import pl.aprilapps.easyphotopicker.MediaFile
 import pl.aprilapps.easyphotopicker.MediaSource
+import timber.log.Timber
 
 class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, EasyImage.Callbacks {
 
@@ -28,6 +37,9 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
     private var name : Int = 0
     private val names = arrayOf("Pet", "Family", "Vacation", "Hobby")
     private var personalities = arrayOf(Personality(), Personality(), Personality(), Personality())
+    private lateinit var mStorage : FirebaseStorage
+    private lateinit var registerViewModel: RegisterViewModel
+    private lateinit var dialog : ProgressDialog
 
     override fun getResourceLayout(): Int {
         return R.layout.activity_personality_avatar
@@ -35,6 +47,10 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
 
     override fun onViewReady(savedInstanceState: Bundle?) {
         showBackButton()
+
+        mStorage = FirebaseStorage.getInstance()
+        registerViewModel = RegisterViewModel(mAuth, mDatabase)
+        dialog = ProgressDialog(this)
 
         val bundle = intent.extras
         if(bundle != null) {
@@ -46,13 +62,18 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
                 address = bundle.getString("user.address", "")
             }
             user.avatar = Avatar().apply {
+                gender = bundle.getString("avatar.gender", "")
                 name = bundle.getString("avatar.name", "")
                 phone = bundle.getString("avatar.phone", "")
                 kewarganegaraan = bundle.getString("avatar.kewarganegaraan", "")
             }
             name = bundle.getInt("name", 0)
-//            if(intent.hasExtra("personalities"))
-//                personalities = intent.getParcelableArrayExtra("personalities") as Array<Personality>
+            if(intent.hasExtra("personalities")) {
+                val gson_str = intent.getStringExtra("personalities")
+                Timber.i(gson_str)
+                val gson = Gson()
+                personalities = gson.fromJson(gson_str, personalities::class.java)
+            }
 
             setTitle("Daftar ${names[name]}")
         }
@@ -101,6 +122,13 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
         }
 
         btn_selanjutnya.setOnClickListener {
+            if(!validate()) {
+               return@setOnClickListener
+            }
+            personalities[name].answers[0].answer = txt_answer_1.text.toString()
+            personalities[name].answers[1].answer = txt_answer_2.text.toString()
+            personalities[name].answers[2].answer = txt_answer_3.text.toString()
+            personalities[name].answers[3].answer = txt_answer_4.text.toString()
             if(name < 3) {
                 val intent = Intent(this, CreatePersonalityActivity::class.java)
                 intent.putExtra("user.name", user.name)
@@ -116,15 +144,67 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
 
                 intent.putExtra("name", name+1)
 
-//                intent.putExtra("personalities", personalities)
+                val gson = Gson()
+                intent.putExtra("personalities", gson.toJson(personalities))
 
                 startActivity(intent)
                 finish()
             } else {
-                Toast.makeText(this, "Berhasil mendaftarkan akun", Toast.LENGTH_SHORT).show()
-                finish()
+                user.avatar.pet = personalities[0]
+                user.avatar.family = personalities[1]
+                user.avatar.vacation = personalities[2]
+                user.avatar.hobby = personalities[3]
+                dialog.setTitle("Please wait")
+                dialog.setCancelable(false)
+                dialog.show()
+                registerViewModel.register(this, user, mStorage, object : StandartInterface.StandartListener {
+                    override fun onSuccess() {
+                        dialog.dismiss()
+                        MaterialDialog(this@CreatePersonalityActivity).show {
+                            title(text="Berhasil mendaftarkan akun")
+                            message(text="Akun anda berhasil didaftarkan")
+                            positiveButton(text="OK") {
+                                finish()
+                            }
+                        }
+                    }
+
+                    override fun onFailed() {
+                        dialog.dismiss()
+                        MaterialDialog(this@CreatePersonalityActivity).show {
+                            title(text="Gagal mendaftarkan akun")
+                            message(text="Terjadi kesalahan ketika mendaftarkan akun anda, coba lagi nanti")
+                            positiveButton(text="OK")
+                        }
+                    }
+
+                })
+
             }
         }
+    }
+
+    private fun validate(): Boolean {
+        txt_answer_1.validate("Jawaban tidak boleh kosong") { it.isNotEmpty() }
+        txt_answer_2.validate("Jawaban tidak boleh kosong") { it.isNotEmpty() }
+        txt_answer_3.validate("Jawaban tidak boleh kosong") { it.isNotEmpty() }
+        txt_answer_4.validate("Jawaban tidak boleh kosong") { it.isNotEmpty() }
+        if(txt_answer_1.text.isEmpty()) return false
+        if(txt_answer_2.text.isEmpty()) return false
+        if(txt_answer_3.text.isEmpty()) return false
+        if(txt_answer_4.text.isEmpty()) return false
+
+        personalities[name].answers.forEach {
+            if(it.image.isEmpty()) {
+                MaterialDialog(this).show {
+                    title(text="Gambar belum dipilih")
+                    message(text="Pilih gambar terlebih dahulu")
+                    positiveButton(text="OK")
+                }
+                return false
+            }
+        }
+        return true
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -170,5 +250,9 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
             }
         }
         personalities[name].answers[selected_image-1].image = image.file.path
+    }
+
+    fun EditText.validate(message: String, validator : (String) -> Boolean) {
+        this.error = if(validator(this.text.toString())) null else message
     }
 }

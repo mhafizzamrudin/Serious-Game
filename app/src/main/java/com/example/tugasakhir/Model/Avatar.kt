@@ -10,7 +10,7 @@ class Avatar {
     var pet = Personality()
     var family = Personality()
     var vacation = Personality()
-    var friend = Personality()
+    var hobby = Personality()
     var phone : String = ""
 
     constructor()
