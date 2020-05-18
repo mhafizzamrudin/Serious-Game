@@ -59,11 +59,26 @@ class Permainan2Fragment : BaseFragment() {
                     message(text="Pilih 2 gambar terlebih dahulu")
                     positiveButton(text="OK")
                 }
-            } else if(txt_answer_1.text.toString().toLowerCase() == questionAdapter.getFirstAnswer()!!.answer.toLowerCase()) {
+            } else if(txt_answer_1.text.toString().toLowerCase() == questionAdapter.getFirstAnswer()!!.answer.toLowerCase() &&
+                    txt_answer_2.text.toString().toLowerCase() == questionAdapter.getSecondAnswer()!!.answer.toLowerCase()) {
                 (activity as PermainanActivity).score += 20
                 MaterialDialog(context!!).show {
                     title(text="Jawaban benar")
                     message(text="Jawaban anda benar, anda mendapatkan 20 point, Apakah anda ingin lanjut?")
+                    positiveButton(text="IYA") {
+                        val fragment = Permainan1Fragment()
+                        replace(R.id.container, fragment, false)
+                    }
+                    negativeButton(text="TIDAK") {
+                        (activity as PermainanActivity).checkScore()
+                        dismiss()
+                    }
+                }
+            } else {
+                (activity as PermainanActivity).score -= 20
+                MaterialDialog(context!!).show {
+                    title(text="Jawaban salah")
+                    message(text="Jawaban anda salah, point anda dikurangi 20, Apakah anda ingin lanjut?")
                     positiveButton(text="IYA") {
                         val fragment = Permainan1Fragment()
                         replace(R.id.container, fragment, false)
