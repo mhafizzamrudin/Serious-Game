@@ -39,7 +39,7 @@ class RegisterAvatarActivity : BaseActivity() {
         img_avatar_female.setOnClickListener{
             img_avatar_female.setImageResource(R.drawable.avatar_female)
                 img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
-            user.avatar.gender = "perempuan"
+            user.avatar.gender = "wanita"
         }
 
         img_avatar_male.setOnClickListener {
@@ -76,7 +76,7 @@ class RegisterAvatarActivity : BaseActivity() {
         txt_phone.validate("No HP tidak boleh kosong") { it.isNotEmpty() }
         txt_kewarganegaraan.validate("Kewarganegaraan tidak boleh kosong") { it.isNotEmpty() }
 
-        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.text.isEmpty()) {
+        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.error.isEmpty()) {
             return true
         }
         return false
