@@ -39,20 +39,20 @@ class RegisterAvatarActivity : BaseActivity() {
         img_avatar_female.setOnClickListener{
             img_avatar_female.setImageResource(R.drawable.avatar_female)
                 img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
-            user.avatar.gender = "Female"
+            user.avatar.gender = "perempuan"
         }
 
         img_avatar_male.setOnClickListener {
             img_avatar_female.setImageResource(R.drawable.avatar_female_unselected)
             img_avatar_male.setImageResource(R.drawable.avatar_male)
-            user.avatar.gender = "Male"
+            user.avatar.gender = "pria"
         }
 
         btn_selanjutnya.setOnClickListener {
             if(validate()) {
                 user.avatar.name = txt_nama.text.toString()
                 user.avatar.phone = txt_phone.text.toString()
-                user.avatar.kewarganegaraan = sp_kewarganegaraan.selectedItem.toString()
+                user.avatar.kewarganegaraan = txt_kewarganegaraan.text.toString()
                 val intent = Intent(this, CreatePersonalityActivity::class.java)
                 intent.putExtra("user.name", user.name)
                 intent.putExtra("user.email", user.email)
@@ -74,8 +74,9 @@ class RegisterAvatarActivity : BaseActivity() {
     fun validate() : Boolean {
         txt_nama.validate("Nama tidak boleh kosong") { it.isNotEmpty() }
         txt_phone.validate("No HP tidak boleh kosong") { it.isNotEmpty() }
+        txt_kewarganegaraan.validate("Kewarganegaraan tidak boleh kosong") { it.isNotEmpty() }
 
-        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "") {
+        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.text.isEmpty()) {
             return true
         }
         return false

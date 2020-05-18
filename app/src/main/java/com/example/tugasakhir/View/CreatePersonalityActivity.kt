@@ -139,7 +139,7 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
 
                 intent.putExtra("avatar.gender", user.avatar.gender)
                 intent.putExtra("avatar.name", user.avatar.name)
-                intent.putExtra("avatar.phone", user.avatar.name)
+                intent.putExtra("avatar.phone", user.avatar.phone)
                 intent.putExtra("avatar.kewarganegaraan", user.avatar.kewarganegaraan)
 
                 intent.putExtra("name", name+1)
