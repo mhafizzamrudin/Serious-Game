@@ -18,13 +18,14 @@ class Permainan1Fragment : BaseFragment() {
         btn_next.setOnClickListener {
             if(txt_jawaban.text.toString().toLowerCase() == question.answer.toLowerCase()) {
                 (activity as PermainanActivity).score += 10
+                // hapus pertanyaanya
+                (activity as PermainanActivity).removeQuestionStep1()
                 MaterialDialog(activity!!).show {
                     title(text="Jawaban anda benar")
                     message(text="Jawaban anda benar, anda mendapatkan 10 poin, Apakah anda ingin lanjut?")
                     positiveButton {
                         dismiss()
-                        // hapus pertanyaanya
-                        (activity as PermainanActivity).removeQuestionStep1()
+
                         val fragment = Permainan2Fragment()
                         replace(R.id.container, fragment, false)
                         updateScore()

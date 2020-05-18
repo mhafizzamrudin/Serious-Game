@@ -62,6 +62,7 @@ class Permainan2Fragment : BaseFragment() {
             } else if(txt_answer_1.text.toString().toLowerCase() == questionAdapter.getFirstAnswer()!!.answer.toLowerCase() &&
                     txt_answer_2.text.toString().toLowerCase() == questionAdapter.getSecondAnswer()!!.answer.toLowerCase()) {
                 (activity as PermainanActivity).score += 20
+                (activity as PermainanActivity).removeQuestionStep2()
                 MaterialDialog(context!!).show {
                     title(text="Jawaban benar")
                     message(text="Jawaban anda benar, anda mendapatkan 20 point, Apakah anda ingin lanjut?")

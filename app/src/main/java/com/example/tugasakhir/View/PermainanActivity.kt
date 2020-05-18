@@ -101,7 +101,7 @@ class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
     }
 
     fun checkScore() {
-        if(score < 50) {
+        if(score < 40) {
             MaterialDialog(this).show {
                 title(text="Score tidak mencukupi")
                 message(text="Anda harus memiliki score minimum sebanyak 50 point, Main Lagi?")
@@ -112,7 +112,7 @@ class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
                     transaction.commit()
                 }
                 negativeButton {
-                    finish()
+                    dismiss()
                 }
             }
         } else {
