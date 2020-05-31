@@ -26,27 +26,29 @@ class RegisterActivity : BaseActivity(), StandartInterface.StandartListener {
         setTitle("Daftar Akun")
         showBackButton()
 
-        registerViewModel = RegisterViewModel(mAuth, mDatabase)
+        gotoNextPage()
 
-        dialog = ProgressDialog(this)
-
-        btn_berikutnya.setOnClickListener {
-            if(validate()) {
-
-                user = User().apply {
-                    name = txt_nama.text.toString()
-                    email = txt_email.text.toString()
-                    password = txt_password.text.toString()
-                    address = txt_address.text.toString()
-                    phone = txt_phone.text.toString()
-                }
-                dialog.setTitle("Please wait")
-                dialog.setCancelable(false)
-                dialog.show()
-                registerViewModel.isEmailAvailable(user.email, this)
-            }
-
-        }
+//        registerViewModel = RegisterViewModel(mAuth, mDatabase)
+//
+//        dialog = ProgressDialog(this)
+//
+//        btn_berikutnya.setOnClickListener {
+//            if(validate()) {
+//
+//                user = User().apply {
+//                    name = txt_nama.text.toString()
+//                    email = txt_email.text.toString()
+//                    password = txt_password.text.toString()
+//                    address = txt_address.text.toString()
+//                    phone = txt_phone.text.toString()
+//                }
+//                dialog.setTitle("Please wait")
+//                dialog.setCancelable(false)
+//                dialog.show()
+//                registerViewModel.isEmailAvailable(user.email, this)
+//            }
+//
+//        }
 
     }
 
@@ -90,6 +92,17 @@ class RegisterActivity : BaseActivity(), StandartInterface.StandartListener {
             message(text= "Email yang anda daftarkan sudah digunakan")
             positiveButton(text="OK")
         }.show()
+    }
+
+    fun gotoNextPage() {
+        val intent = Intent(this, RegisterAvatarActivity::class.java)
+        intent.putExtra("name", "John Doe")
+        intent.putExtra("email", "tugasakhir225@gmail.com")
+        intent.putExtra("password", "mypassword")
+        intent.putExtra("address", "Bandung")
+        intent.putExtra("phone", "08123456789")
+        startActivity(intent)
+        finish()
     }
 
 }
