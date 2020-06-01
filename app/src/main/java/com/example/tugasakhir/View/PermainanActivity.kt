@@ -50,7 +50,7 @@ class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
             user = Gson().fromJson(user_json, User::class.java)
             question_step1.add(Question("Siapakah nama Avatar anda?", user.avatar.name))
             question_step1.add(Question("Apakah jenis kelamin Avatar anda?", user.avatar.gender))
-            question_step1.add(Question("Berapakah no HP Avatar anda?", user.avatar.phone))
+            question_step1.add(Question("Apakah Suku Avatar anda?", user.avatar.suku))
             question_step1.add(Question("Apakah kewarganegaraan Avatar anda?", user.avatar.kewarganegaraan))
 
             question_step2.add(user.avatar.pet)

@@ -12,29 +12,29 @@
         android:layout_marginTop="60dp"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
-            android:layout_marginBottom="16dp">
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_marginBottom="16dp">-->
 
-            <ImageView
-                android:id="@+id/img_avatar_male"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="center"
-                android:layout_marginRight="10dp"
-                android:src="@drawable/avatar_male" />
+<!--            <ImageView-->
+<!--                android:id="@+id/img_avatar_male"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:scaleType="center"-->
+<!--                android:layout_marginRight="10dp"-->
+<!--                android:src="@drawable/avatar_male" />-->
 
-            <ImageView
-                android:id="@+id/img_avatar_female"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:scaleType="center"
-                android:src="@drawable/avatar_female" />
-        </LinearLayout>
+<!--            <ImageView-->
+<!--                android:id="@+id/img_avatar_female"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="10dp"-->
+<!--                android:scaleType="center"-->
+<!--                android:src="@drawable/avatar_female" />-->
+<!--        </LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,16 +51,21 @@
                     android:layout_marginBottom="5dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>
+            <Spinner
+                android:id="@+id/sp_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/gender"/>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
-                    android:id="@+id/txt_phone"
+                    android:id="@+id/txt_suku"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="No HP"
+                    android:hint="Suku"
                     android:layout_marginBottom="5dp"
-                    android:inputType="number"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 

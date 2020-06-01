@@ -64,7 +64,7 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
             user.avatar = Avatar().apply {
                 gender = bundle.getString("avatar.gender", "")
                 name = bundle.getString("avatar.name", "")
-                phone = bundle.getString("avatar.phone", "")
+                suku = bundle.getString("avatar.suku", "")
                 kewarganegaraan = bundle.getString("avatar.kewarganegaraan", "")
             }
             name = bundle.getInt("name", 0)
@@ -139,7 +139,7 @@ class CreatePersonalityActivity : BaseActivity(), MultiplePermissionsListener, E
 
                 intent.putExtra("avatar.gender", user.avatar.gender)
                 intent.putExtra("avatar.name", user.avatar.name)
-                intent.putExtra("avatar.phone", user.avatar.phone)
+                intent.putExtra("avatar.suku", user.avatar.suku)
                 intent.putExtra("avatar.kewarganegaraan", user.avatar.kewarganegaraan)
 
                 intent.putExtra("name", name+1)

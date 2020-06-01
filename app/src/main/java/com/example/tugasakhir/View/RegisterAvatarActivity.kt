@@ -3,13 +3,14 @@ package com.example.tugasakhir.View
 import android.content.Intent
 import android.os.Bundle
 import android.widget.EditText
+import androidx.core.view.get
 import com.example.tugasakhir.Model.Avatar
 import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
 import kotlinx.android.synthetic.main.activity_registrasi.*
 import kotlinx.android.synthetic.main.activity_registrasi_avatar.*
 import kotlinx.android.synthetic.main.activity_registrasi_avatar.txt_nama
-import kotlinx.android.synthetic.main.activity_registrasi_avatar.txt_phone
+import kotlinx.android.synthetic.main.activity_registrasi_avatar.txt_suku
 
 class RegisterAvatarActivity : BaseActivity() {
 
@@ -36,22 +37,23 @@ class RegisterAvatarActivity : BaseActivity() {
 
         }
 
-        img_avatar_female.setOnClickListener{
-            img_avatar_female.setImageResource(R.drawable.avatar_female)
-                img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
-            user.avatar.gender = "wanita"
-        }
-
-        img_avatar_male.setOnClickListener {
-            img_avatar_female.setImageResource(R.drawable.avatar_female_unselected)
-            img_avatar_male.setImageResource(R.drawable.avatar_male)
-            user.avatar.gender = "pria"
-        }
+//        img_avatar_female.setOnClickListener{
+//            img_avatar_female.setImageResource(R.drawable.avatar_female)
+//                img_avatar_male.setImageResource(R.drawable.avatar_male_unselected)
+//            user.avatar.gender = "wanita"
+//        }
+//
+//        img_avatar_male.setOnClickListener {
+//            img_avatar_female.setImageResource(R.drawable.avatar_female_unselected)
+//            img_avatar_male.setImageResource(R.drawable.avatar_male)
+//            user.avatar.gender = "pria"
+//        }
 
         btn_selanjutnya.setOnClickListener {
             if(validate()) {
                 user.avatar.name = txt_nama.text.toString()
-                user.avatar.phone = txt_phone.text.toString()
+                user.avatar.suku = txt_suku.text.toString()
+                user.avatar.gender = sp_gender.selectedItem.toString()
                 user.avatar.kewarganegaraan = txt_kewarganegaraan.text.toString()
                 val intent = Intent(this, CreatePersonalityActivity::class.java)
                 intent.putExtra("user.name", user.name)
@@ -62,7 +64,7 @@ class RegisterAvatarActivity : BaseActivity() {
 
                 intent.putExtra("avatar.gender", user.avatar.gender)
                 intent.putExtra("avatar.name", user.avatar.name)
-                intent.putExtra("avatar.phone", user.avatar.phone)
+                intent.putExtra("avatar.suku", user.avatar.suku)
                 intent.putExtra("avatar.kewarganegaraan", user.avatar.kewarganegaraan)
 
                 startActivity(intent)

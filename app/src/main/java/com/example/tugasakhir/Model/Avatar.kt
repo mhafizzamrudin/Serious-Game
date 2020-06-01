@@ -11,7 +11,7 @@ class Avatar {
     var family = Personality()
     var vacation = Personality()
     var hobby = Personality()
-    var phone : String = ""
+    var suku : String = ""
 
     constructor()
 
