@@ -75,10 +75,10 @@ class RegisterAvatarActivity : BaseActivity() {
 
     fun validate() : Boolean {
         txt_nama.validate("Nama tidak boleh kosong") { it.isNotEmpty() }
-        txt_phone.validate("No HP tidak boleh kosong") { it.isNotEmpty() }
+        txt_suku.validate("Suku tidak boleh kosong") { it.isNotEmpty() }
         txt_kewarganegaraan.validate("Kewarganegaraan tidak boleh kosong") { it.isNotEmpty() }
 
-        if(txt_nama.error.isNullOrBlank() && txt_phone.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.error.isNullOrBlank()) {
+        if(txt_nama.error.isNullOrBlank() && txt_suku.error.isNullOrBlank() && user.avatar.gender != "" && txt_kewarganegaraan.error.isNullOrBlank()) {
             return true
         }
         return false
