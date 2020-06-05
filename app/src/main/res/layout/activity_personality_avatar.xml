@@ -50,7 +50,7 @@
                 <Button
                     android:id="@+id/btn_pilih_gambar_1"
                     android:layout_width="match_parent"
-                    android:background="@drawable/tombol"
+                    android:background="@drawable/tombol_login"
                     style="@style/ButtonNormal"
                     android:text="Pilih Gambar"/>
 
@@ -89,7 +89,7 @@
                 <Button
                     android:id="@+id/btn_pilih_gambar_2"
                     android:layout_width="match_parent"
-                    android:background="@drawable/tombol"
+                    android:background="@drawable/tombol_login"
                     style="@style/ButtonNormal"
                     android:text="Pilih Gambar"/>
 
@@ -127,7 +127,7 @@
                 <Button
                     android:id="@+id/btn_pilih_gambar_3"
                     android:layout_width="match_parent"
-                    android:background="@drawable/tombol"
+                    android:background="@drawable/tombol_login"
                     style="@style/ButtonNormal"
                     android:text="Pilih Gambar"/>
 
@@ -165,7 +165,7 @@
                 <Button
                     android:id="@+id/btn_pilih_gambar_4"
                     android:layout_width="match_parent"
-                    android:background="@drawable/tombol"
+                    android:background="@drawable/tombol_login"
                     style="@style/ButtonNormal"
                     android:text="Pilih Gambar"/>
 
@@ -189,7 +189,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/ButtonNormal"
-        android:background="@drawable/tombol"
+        android:background="@drawable/tombol_login"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
