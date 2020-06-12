@@ -97,7 +97,7 @@ class RegisterActivity : BaseActivity(), StandartInterface.StandartListener {
     fun gotoNextPage() {
         val intent = Intent(this, RegisterAvatarActivity::class.java)
         intent.putExtra("name", "John Doe")
-        intent.putExtra("email", "tugasakhir225@gmail.com")
+        intent.putExtra("email", "share424@gmail.com")
         intent.putExtra("password", "mypassword")
         intent.putExtra("address", "Bandung")
         intent.putExtra("phone", "08123456789")
