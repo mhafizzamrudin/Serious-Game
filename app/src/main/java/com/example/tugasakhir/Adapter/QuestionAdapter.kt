@@ -15,8 +15,9 @@ import timber.log.Timber
 
 class QuestionAdapter(var answers: MutableList<Answer>) : RecyclerView.Adapter<QuestionAdapter.Holder>() {
 
-    var selectedFirst = -1
-    var selectedSecond = -1
+//    var selectedFirst = -1
+//    var selectedSecond = -1
+    var selectedAnswer = -1
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val holder = LayoutInflater.from(parent.context).inflate(R.layout.item_question, parent, false)
@@ -28,36 +29,38 @@ class QuestionAdapter(var answers: MutableList<Answer>) : RecyclerView.Adapter<Q
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        if(position == selectedFirst) {
-            Timber.d("Answer 1: ${answers[selectedFirst].answer}")
-            holder.bind(answers[position], 1)
-        } else if(position == selectedSecond) {
-            Timber.d("Answer 2: ${answers[selectedSecond].answer}")
-            holder.bind(answers[position], 2)
+//        if(position == selectedFirst) {
+//            Timber.d("Answer 1: ${answers[selectedFirst].answer}")
+//            holder.bind(answers[position], 1)
+//        } else if(position == selectedSecond) {
+//            Timber.d("Answer 2: ${answers[selectedSecond].answer}")
+//            holder.bind(answers[position], 2)
+//        } else {
+//            holder.bind(answers[position], -1)
+//        }
+        if(position == selectedAnswer) {
+            Timber.d("Answer : ${answers[selectedAnswer].answer}")
+            holder.bind(answers[position], true)
         } else {
-            holder.bind(answers[position], -1)
+            holder.bind(answers[position], false)
         }
     }
 
-    fun getFirstAnswer() = if(selectedFirst != -1) answers[selectedFirst] else null
-    fun getSecondAnswer() = if(selectedSecond != -1) answers[selectedSecond] else null
+//    fun getFirstAnswer() = if(selectedFirst != -1) answers[selectedFirst] else null
+//    fun getSecondAnswer() = if(selectedSecond != -1) answers[selectedSecond] else null
+    fun getSelectedAnswer() = if(selectedAnswer != -1) answers[selectedAnswer] else null
+
 
     class Holder(var context : Context, var view : View) : RecyclerView.ViewHolder(view) {
-        fun bind(answer : Answer, isSelected : Int) {
+        fun bind(answer : Answer, isSelected : Boolean) {
             val circularProgressDrawable = CircularProgressDrawable(context)
             circularProgressDrawable.strokeWidth = 5f
             circularProgressDrawable.centerRadius = 30f
             circularProgressDrawable.start()
-            view.txt_selected.visibility = View.INVISIBLE
-            if(isSelected == 1) {
-                view.txt_selected.apply {
+            view.img_selected.visibility = View.INVISIBLE
+            if(isSelected) {
+                view.img_selected.apply {
                     visibility = View.VISIBLE
-                    text = "1"
-                }
-            } else if(isSelected == 2) {
-                view.txt_selected.apply {
-                    visibility = View.VISIBLE
-                    text = "2"
                 }
             }
 
@@ -65,6 +68,7 @@ class QuestionAdapter(var answers: MutableList<Answer>) : RecyclerView.Adapter<Q
                     .load(answer.image)
                     .placeholder(circularProgressDrawable)
                     .into(view.img_view)
+            Timber.d("Load Image %s", answer.image)
         }
     }
 }

@@ -21,7 +21,7 @@ class RegisterAvatarActivity : BaseActivity() {
     }
 
     override fun onViewReady(savedInstanceState: Bundle?) {
-        setTitle("Daftar Avatar")
+//        setTitle("Daftar Avatar")
         showBackButton()
 
 
