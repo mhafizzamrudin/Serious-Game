@@ -59,18 +59,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:orientation="horizontal">
             <EditText
                 android:id="@+id/txt_jawaban"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="Jawaban"
-                android:layout_marginBottom="35dp"
+                android:enabled="false"
                 />
-
+            <ImageButton
+                android:id="@+id/btn_backspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_keyboard_backspace_24"
+                android:background="@color/colorPrimary"
+                android:layout_gravity="center"/>
         </LinearLayout>
+
+        <com.example.tugasakhir.Custom.NonScrollRecyclerView
+            android:id="@+id/virtual_keyboard_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            app:frv_dividerHorizontalHeight="1dp"
+            app:frv_dividerVerticalHeight="1dp"
+            app:frv_itemViewBothSidesMargin="1dp"
+            app:frv_layoutManager="grid"
+            app:frv_layoutManagerOrientation="vertical"
+            app:frv_spanCount="10" />
 
 
         <Button

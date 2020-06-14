@@ -10,6 +10,7 @@ import com.example.tugasakhir.Adapter.QuestionAdapter
 import com.example.tugasakhir.Model.Personality
 import com.example.tugasakhir.R
 import kotlinx.android.synthetic.main.fragment_permainan2.*
+import kotlin.random.Random
 
 class Permainan2Fragment : BaseFragment() {
 
@@ -57,10 +58,16 @@ class Permainan2Fragment : BaseFragment() {
             questionAdapter.notifyDataSetChanged()
             keys.clear()
             val answer = questionAdapter.getSelectedAnswer()!!
+            val new_keys = mutableListOf<String>()
             answer.answer.forEach {
-                keys.add(it.toString())
+                new_keys.add(it.toString().toUpperCase())
             }
-            keys.shuffle()
+            for(i in 0..26) {
+                new_keys.add(Random.nextInt(65, 90).toChar().toString())
+            }
+            val new = new_keys.distinct().toMutableList()
+            new.shuffle()
+            keys.addAll(new)
             keyboardAdapter.notifyDataSetChanged()
         }
 
@@ -119,6 +126,7 @@ class Permainan2Fragment : BaseFragment() {
         virtual_keyboard_view.adapter = keyboardAdapter
         btn_backspace.setOnClickListener {
             val ans = txt_answer.text.toString()
+            if(ans.isEmpty()) return@setOnClickListener
             txt_answer.setText(ans.substring(0, ans.length - 1))
         }
 

@@ -83,7 +83,7 @@
                     android:layout_gravity="center"/>
             </LinearLayout>
 
-            <cn.iwgang.familiarrecyclerview.FamiliarRecyclerView
+            <com.example.tugasakhir.Custom.NonScrollRecyclerView
                 android:id="@+id/virtual_keyboard_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -93,7 +93,7 @@
                 app:frv_itemViewBothSidesMargin="1dp"
                 app:frv_layoutManager="grid"
                 app:frv_layoutManagerOrientation="vertical"
-                app:frv_spanCount="5" />
+                app:frv_spanCount="10" />
 
 
 
