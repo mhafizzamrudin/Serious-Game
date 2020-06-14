@@ -1,13 +1,19 @@
 package com.example.tugasakhir.View
 
+import android.widget.Button
+import cn.iwgang.familiarrecyclerview.baservadapter.FamiliarEasyAdapter
 import com.afollestad.materialdialogs.MaterialDialog
 import com.example.tugasakhir.Model.Question
 import com.example.tugasakhir.R
 import kotlinx.android.synthetic.main.fragment_permainan1.*
+import kotlinx.android.synthetic.main.fragment_permainan1.btn_backspace
 import timber.log.Timber
+import kotlin.random.Random
 
 class Permainan1Fragment : BaseFragment() {
     private lateinit var question : Question
+    private lateinit var keyboardAdapter : FamiliarEasyAdapter<Char>
+    private lateinit var keys : MutableList<Char>
     override fun getResourceLayout(): Int {
         return R.layout.fragment_permainan1
     }
@@ -49,6 +55,35 @@ class Permainan1Fragment : BaseFragment() {
             }
 
         }
+
+        keys = mutableListOf()
+        val new_keys = question.answer.toUpperCase().toMutableList()
+        for(i in 0..26) {
+            new_keys.add(Random.nextInt(65, 90).toChar())
+        }
+        val new = new_keys.distinct().toMutableList()
+        new.shuffle()
+        keys.addAll(new)
+        keyboardAdapter = object : FamiliarEasyAdapter<Char>(context!!, R.layout.item_key, keys) {
+            override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+                val button = holder.findView<Button>(R.id.btn_key)
+                button.text = keys[position].toString()
+                button.setOnClickListener {
+                    val ans = txt_jawaban.text.toString()
+                    txt_jawaban.setText(ans + keys[position])
+                }
+            }
+
+        }
+
+        virtual_keyboard_view.adapter = keyboardAdapter
+
+        btn_backspace.setOnClickListener {
+            val ans = txt_jawaban.text.toString()
+            if(ans.isEmpty()) return@setOnClickListener
+            txt_jawaban.setText(ans.substring(0, ans.length - 1))
+        }
+
     }
 
     fun randomQuestion() {
