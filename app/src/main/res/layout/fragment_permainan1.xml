@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Permainan level 1"
+            android:text="Identitas Avatar"
             android:gravity="center"
             android:textSize="46dp"
             android:textStyle="bold"
