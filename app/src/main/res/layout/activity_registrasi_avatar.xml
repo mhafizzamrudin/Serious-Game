@@ -31,11 +31,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <EditText
+                    android:id="@+id/txt_email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:text="tugasakhir225@gmail.com"
-                    android:enabled="false"
                     android:layout_marginBottom="5dp"
                     />
             </com.google.android.material.textfield.TextInputLayout>

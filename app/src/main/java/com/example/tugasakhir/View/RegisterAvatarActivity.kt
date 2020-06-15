@@ -7,7 +7,6 @@ import androidx.core.view.get
 import com.example.tugasakhir.Model.Avatar
 import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
-import kotlinx.android.synthetic.main.activity_registrasi.*
 import kotlinx.android.synthetic.main.activity_registrasi_avatar.*
 import kotlinx.android.synthetic.main.activity_registrasi_avatar.txt_nama
 import kotlinx.android.synthetic.main.activity_registrasi_avatar.txt_suku
@@ -52,6 +51,7 @@ class RegisterAvatarActivity : BaseActivity() {
 
         btn_selanjutnya.setOnClickListener {
             if(validate()) {
+                user.email = txt_email.text.toString()
                 user.avatar.name = txt_nama.text.toString()
                 user.avatar.suku = txt_suku.text.toString()
                 user.avatar.gender = sp_gender.selectedItem.toString()
