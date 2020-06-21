@@ -1,6 +1,8 @@
 package com.example.tugasakhir.View
 
+import android.app.AlertDialog
 import android.app.ProgressDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -12,7 +14,7 @@ import com.example.tugasakhir.Model.User
 import com.example.tugasakhir.R
 import com.example.tugasakhir.ViewModel.ResetPassword
 import com.google.gson.Gson
-import timber.log.Timber
+
 
 class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
 
@@ -69,10 +71,20 @@ class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
 
         frag_permainan1 = Permainan1Fragment()
 
+        val builder = AlertDialog.Builder(this)
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.container, frag_permainan1)
         transaction.commit()
+
+
+        builder.setView(layoutInflater.inflate(R.layout.activity_role_permainan, null))
+        builder.setPositiveButton("Mulai Permainan"){ dialog,id ->
+            dialog.dismiss()
+        }
+        builder.create().show()
     }
+
+
 
     fun getQuestionStep1() : Question? {
         if(question_step1.size > 0) {
@@ -101,7 +113,7 @@ class PermainanActivity : BaseActivity(), StandartInterface.StandartListener {
     }
 
     fun checkScore() {
-        if(score < 40) {
+        if(score < 50) {
             MaterialDialog(this).show {
                 title(text="Score tidak mencukupi")
                 message(text="Anda harus memiliki score minimum sebanyak 50 point, Main Lagi?")
