@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_marginTop="60dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Role Permainan"
+            android:gravity="center"
+            android:textSize="46dp"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Pengguna akan disuguhkan dua level permainan yaitu Identitas Avatar dan Personality Avatar."
+                android:textSize="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="2. Pada level Identitas Avatar, pengguna harus menjawab pertanyaan yang diberikan sistem berdasarkan data pribadi dari avatar yang telah dimasukkan ketika melakukan proses registrasi.jika pengguna berhasil menjawab pertanyaan dengan benar maka akan mendapatkan tambahan 10 poin dan jika menjawab dengan salah maka pengguna akan mendapat pengurangan 10 poin. Pertanyaan yang berhasil di jawab akan di hapus dari daftar pertanyaan."
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3. Pada level Personality avatar, pengguna harus memilih salah satu gambar dan menjawab dengan benar berdasarkan data pribadi dari avatar yang telah dimasukkan ketika melakukan proses registrasi.jika pengguna berhasil menjawab dengan benar maka akan mendapatkan tambahan 20 poin dan jika menjawab dengan salah maka pengguna akan mendapat pengurangan 20 poin.  Gambar yang berhasil di jawab akan di hapus dari daftar gambar."
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="4. Pada setiap level, pengguna akan diberi bantuan berupa keyboard yang berisikan jawaban dari pertanyaan yang diberikan."
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="5. Pengguna harus mengumpulkan minimal 50 poin untuk dapat melakukan proses reset password."
+                android:textSize="10dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="6. Jika pengguna belum memiliki poin yang cukup tetapi pertanyaan sudah tidak tersedia lagi, maka pengguna diharuskan untuk keluar dari permainan dan memulai kembali permainan dari awal."
+                android:textSize="10dp"
+                android:layout_marginBottom="40dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
+                />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:background="@drawable/tombol_login"
+            android:text="Mulai permainan"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+</RelativeLayout>
